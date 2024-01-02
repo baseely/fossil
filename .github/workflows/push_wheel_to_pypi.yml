@@ -8,11 +8,6 @@ jobs:
   pypi-publish:
     name: Upload release to PyPI
     runs-on: ubuntu-latest
-    # environment:
-    #   name: pypi
-    #   url: https://pypi.org/p/fossil
-    #   permissions:
-    #     id-token: write
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -48,7 +43,7 @@ jobs:
           pip install --upgrade setuptools wheel
           pip install --upgrade twine
       - name: Publish to PyPI
-        uses: pypa/gh-action-pypi-publish@release
+        uses: pypa/gh-action-pypi-publish@v1
         with:
           user: __token__
           password: ${{ secrets.PYPI_API_TOKEN }}
